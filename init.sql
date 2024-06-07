@@ -72,3 +72,6 @@ INSERT INTO `monitor`.`service` (`id`, `service`, `enabled`, `instance_id`) VALU
 
 COMMIT;
 
+CREATE USER IF NOT EXISTS 'api_gateway' IDENTIFIED BY 'api_gateway@paidify';
+GRANT SELECT, UPDATE ON `monitor`.`service` TO 'api_gateway';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `monitor`.`instance` TO 'api_gateway';
